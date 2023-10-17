@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'
 db = SQLAlchemy(app)
+
+CORS(app)
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)

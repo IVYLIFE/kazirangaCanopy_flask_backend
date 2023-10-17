@@ -12,3 +12,4 @@ packaging
 SQLAlchemy
 typing_extensions
 Werkzeug
+flask-cors
