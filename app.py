@@ -21,7 +21,7 @@ class Review(db.Model):
 def reviews():
     if request.method == 'GET':
         reviews = Review.query.all()
-        return jsonify({'data':[{'name': review.name, 'comment': review.comment, 'stars': review.stars, 'date': review.date} for review in reviews]})
+        return ({'data':[{'name': review.name, 'comment': review.comment, 'stars': review.stars, 'date': review.date} for review in reviews]})
     elif request.method == 'POST':
         data = request.get_json()
         name = data['name']
@@ -30,4 +30,4 @@ def reviews():
         review = Review(name=name, comment=comment, stars=stars)
         db.session.add(review)
         db.session.commit()
-        return jsonify({'message': 'Review added successfully!'})
+        return ({'message': 'Review added successfully!'})
