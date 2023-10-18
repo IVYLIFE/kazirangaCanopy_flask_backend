@@ -33,4 +33,4 @@ def reviews():
         review = Review(name=name, comment=comment, stars=stars)
         db.session.add(review)
         db.session.commit()
-        return ({'message': 'Review added successfully!'})
+        return ({'message': 'Review added to database successfully!'})
